@@ -1,11 +1,12 @@
 import React from "react"
 
 const stockcard = (prop) =>{
+    // console.log(prop.body)
     return(
         <div className="column">
             <div className="stockCard-cont">
-                <h2>Insert Stock Name</h2>
-                <p>Stock price</p>
+                <h2>{prop.body.name}</h2>
+                <p>{prop.body.c}</p>
             </div>
         </div>
     )
