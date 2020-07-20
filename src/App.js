@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     // let interval = null;
     let name = "AMD";
-    //
+    //https://finnhub.io/dashboard bs8der7rh5r8i6g9hd60
     let token = "";
     function handleSetBody(body, name){
       setBody({...body, name:name});
