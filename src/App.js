@@ -8,31 +8,30 @@ function App() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    console.log("Calling:")
-    console.log("in the getQuote")
     // let interval = null;
     let name = "AMD";
     //
     let token = "";
 
+    //Handles storing the body
     function handleSetBody(body, name){
       setBody({...body, name:name});
       setCount(count+1);
       console.log(count)
     }
     
+    //Send requests to finnhub.io website
     let interval = setInterval(() => {
       const request = require('request');
       request(`https://finnhub.io/api/v1/quote?symbol=${name}&token=${token}`, { json: true }, (err, res, body) => {
       if (err) { return console.log(err); }
         handleSetBody(body, name) 
-      // console.log(`Sent: ${count}`);
       });
-    }, 10000);
+    }, 1500);
     return ()=> clearInterval(interval)
 
   });
-
+  //jsx code
   return (
     <div className="App">
       <Searchbar/>
