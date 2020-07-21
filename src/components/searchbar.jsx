@@ -4,7 +4,7 @@ const searchbar = (prop) =>{
     
     return(
         <div className="search-cont">
-            <input type="text" placeholder="Search Stock" className="searchBar"/>
+            <input onKeyDown={prop.setLStock} type="text" placeholder="Search Stock" className="searchBar"/>
         </div>
         
     );
