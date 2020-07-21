@@ -10,8 +10,8 @@ function App() {
   useEffect(() => {
     // let interval = null;
     let name = "AMD";
-    //https://finnhub.io/dashboard bs8der7rh5r8i6g9hd60
-    let token = "";
+    //https://finnhub.io/dashboard bsb20svrh5raiv9cegqg
+    let token = "bsb20svrh5raiv9cegqg";
 
     //Handles storing the body
     function handleSetBody(body, name){
@@ -27,7 +27,7 @@ function App() {
       if (err) { return console.log(err); }
         handleSetBody(body, name) 
       });
-    }, 1500);
+    }, 1300);
     return ()=> clearInterval(interval)
 
   });
@@ -36,6 +36,8 @@ function App() {
     <div className="App">
       <Searchbar/>
       <div className="cardHolder">
+        <Stockcard body={body}/>
+        <Stockcard body={body}/>
         <Stockcard body={body}/>
       </div>
     </div>
