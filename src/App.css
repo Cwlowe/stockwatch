@@ -30,15 +30,26 @@
   margin: 10% auto;
   border: 1px solid black;
 }
+.sotckCard-Cont-pa{
+  background:lightcoral;
+  width: 70%;
+  height: 40%;
+  border-radius: 10px;
+  text-align:center;
+  margin: 10% auto;
+  border: 1px solid black;
+}
 
 .stockCard-cont:hover{
   box-shadow: 0 0 3pt 2pt #89A1EF;
   
 }
 .setPriceStyle{
-  width: 80%;
+  width: 30%;
 }
-
+input[class="setPriceStyle"]::placeholder{
+  text-align:center;
+}
 /*Search Bar */
 .search-cont{
   text-align:center;

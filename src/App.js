@@ -9,12 +9,12 @@ function App() {
   
   const handleSearchList = (e) =>{
     let stockname = e.target.value;
-    let token = "bsbo02nrh5r8nm9ejgug";
+    let token = "bsf8oqnrh5rf14r5ivog";
     if(e.which === 13){
       const request = require('request');
       request(`https://finnhub.io/api/v1/quote?symbol=${stockname}&token=${token}`, { json: true }, (err, res, body) => {
         if (err) { return console.log(err); }
-        if(res.body.error === "Symbol not supported."){
+        if(Object.values(body).length === 0){
             alert("Stock Not Supported");
         }else{
           let stocklist = {
@@ -41,6 +41,7 @@ function App() {
         {Object.values(Lstock).map((x, key) =>(
           <Stockcard key={key} stockname={x} remove={handleRemove}/>
         ))}
+        <Stockcard stockname={"AMD"} remove={handleRemove}/>
       </div>
     </div>
   );
