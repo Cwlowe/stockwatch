@@ -21,7 +21,7 @@ const Stockcard = (prop) =>{
         // let interval = null;
         let name = prop.stockname;
         //https://finnhub.io/dashboard bsb20svrh5raiv9cegqg
-        let token = "bsb20svrh5raiv9cegqg";
+        let token = "bsbo02nrh5r8nm9ejgug";
         
         //Send requests to finnhub.io website
         let interval = setInterval(() => {
