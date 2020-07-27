@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 
 const Stockcard = (prop) =>{
-    console.log(prop)
     const [value, setValue] = useState(null);
     const [count, setCount] = useState(0);
     const [sbody, setBody] = useState({name:prop.stockname, c:0, h:0, l:0, o:0, pc:0, t:0});
@@ -28,12 +27,16 @@ const Stockcard = (prop) =>{
           const request = require('request');
           request(`https://finnhub.io/api/v1/quote?symbol=${name}&token=${token}`, { json: true }, (err, res, body) => {
           if (err) { return console.log(err); }
+          if(res.body.error === "Symbol not supported."){
+              prop.remove(name)
+          }else{
             // test - body
             // console.log(body)
             handleSetBody(body, name);
             setCount(count+1);
             // test - count
             // console.log(count) 
+          }
           });
         }, 2000);
         return ()=> clearInterval(interval)
@@ -47,7 +50,6 @@ const Stockcard = (prop) =>{
                 <input className="setPriceStyle" onKeyDown={handleSetPrice} type="text" placeholder="Set Price"/>
                 <p>Set value: {value ? value:"No set value"}</p>
                 <p>{sbody.c}</p>
-                
             </div>
         </div>
     )
